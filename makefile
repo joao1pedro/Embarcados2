@@ -9,9 +9,8 @@ app:
 app_link: app
 	$(CC) -o $(EXEC)  $(EXEC).o
 	cp $(EXEC) /home/joao/Documentos/Embedded2/pratica06/rootfs/root
-	cp $(EXEC) /var/www/html/
+	cp $(EXEC) ../pratica06/rootfs/usr/htdocs/project
 
 clean:
 	@rm -f $(EXEC) *.o
-	@rm /var/www/html/$(EXEC)
-	@rm /home/joao/Documentos/Embedded2/pratica06/rootfs/root/$(EXEC)
+	@rm -f $(EXEC) ../pratica06/rootfs/usr/htdocs/project

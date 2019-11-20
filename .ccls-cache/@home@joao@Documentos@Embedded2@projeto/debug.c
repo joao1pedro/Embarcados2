@@ -15,77 +15,26 @@ int main(int argc, const char *argv[])
     int pinNum = atoi(argv[1]);
     int onOff = atoi(argv[2]);
 
-    /*setup pin1*/
-    f = fopen("/sys/class/gpio/export", "a");
-    if (f == NULL)
-        printf("Erro na abertura do arquivo\n");
-    fwrite(&pin1, sizeof(char[3]), 1, f);
-
-    fclose(f);
-
-    system("chmod 777 /sys/class/gpio/gpio53/direction");
-
-    f = fopen("/sys/class/gpio/gpio53/direction", "a");
-    if (f == NULL)
-        printf("Erro na abertura do arquivo\n");
-    fwrite(&dir, sizeof(char[4]), 1, f);
-
-    fclose(f);
-
-    /*setup pin2*/
-    f = fopen("/sys/class/gpio/export", "a");
-    if (f == NULL)
-        printf("Erro na abertura do arquivo\n");
-    fwrite(&pin2, sizeof(char[3]), 1, f);
-
-    fclose(f);
-
-    system("chmod 777 /sys/class/gpio/gpio54/direction");
-
-    f = fopen("/sys/class/gpio/gpio54/direction", "a");
-    if (f == NULL)
-        printf("Erro na abertura do arquivo\n");
-    fwrite(&dir, sizeof(char[4]), 1, f);
-
-    fclose(f);
-        
-    /*setup pin 3*/
-    f = fopen("/sys/class/gpio/export", "a");
-    if (f == NULL)
-        printf("Erro na abertura do arquivo\n");
-    fwrite(&pin3, sizeof(char[3]), 1, f);
-
-    fclose(f);
-
-    system("chmod 777 /sys/class/gpio/gpio55/direction");
-
-    f = fopen("/sys/class/gpio/gpio55/direction", "a");
-    if (f == NULL)
-        printf("Erro na abertura do arquivo\n");
-    fwrite(&dir, sizeof(char[4]), 1, f);
-
-    fclose(f);
-
-    /*setup pin4*/
-    f = fopen("/sys/class/gpio/export", "a");
-    if (f == NULL)
-        printf("Erro na abertura do arquivo\n");
-    fwrite(&pin4, sizeof(char[3]), 1, f);
-
-    fclose(f);
-
-    system("chmod 777 /sys/class/gpio/gpio56/direction");
-
-    f = fopen("/sys/class/gpio/gpio56/direction", "a");
-    if (f == NULL)
-        printf("Erro na abertura do arquivo\n");
-    fwrite(&dir, sizeof(char[4]), 1, f);
-
-    fclose(f);
-
     switch (pinNum)
     {
     case 53:
+        /*setup pin1*/
+        f = fopen("/sys/class/gpio/export", "a");
+        if (f == NULL)
+            printf("Erro na abertura do arquivo\n");
+        fwrite(&pin1, sizeof(char[3]), 1, f);
+
+        fclose(f);
+
+        system("chmod 777 /sys/class/gpio/gpio53/direction");
+
+        f = fopen("/sys/class/gpio/gpio53/direction", "a");
+        if (f == NULL)
+            printf("Erro na abertura do arquivo\n");
+        fwrite(&dir, sizeof(char[4]), 1, f);
+
+        fclose(f);
+        
         if(onOff == 1)
         {
             f = fopen("/sys/class/gpio/gpio53/value", "w+");
@@ -94,6 +43,7 @@ int main(int argc, const char *argv[])
             fwrite(&high, sizeof(char), 1, f);
 
             fclose(f);
+            printf("value 1");
         }
         else {
 
@@ -103,9 +53,27 @@ int main(int argc, const char *argv[])
             fwrite(&low, sizeof(char), 1, f);
 
             fclose(f);
+            printf("value 0");
         }
 
     case 54:
+        /*setup pin2*/
+        f = fopen("/sys/class/gpio/export", "a");
+        if (f == NULL)
+            printf("Erro na abertura do arquivo\n");
+        fwrite(&pin2, sizeof(char[3]), 1, f);
+
+        fclose(f);
+
+        system("chmod 777 /sys/class/gpio/gpio54/direction");
+
+        f = fopen("/sys/class/gpio/gpio54/direction", "a");
+        if (f == NULL)
+            printf("Erro na abertura do arquivo\n");
+        fwrite(&dir, sizeof(char[4]), 1, f);
+
+        fclose(f);
+
         if(onOff == 1)
         {
             f = fopen("/sys/class/gpio/gpio54/value", "w+");
@@ -114,6 +82,7 @@ int main(int argc, const char *argv[])
             fwrite(&high, sizeof(char), 1, f);
 
             fclose(f);
+            printf("value 1");
         }
 
         else {
@@ -123,8 +92,26 @@ int main(int argc, const char *argv[])
             fwrite(&low, sizeof(char), 1, f);
 
             fclose(f);
+            printf("value 0");
         }
     case 55:
+        /*setup pin 3*/
+        f = fopen("/sys/class/gpio/export", "a");
+        if (f == NULL)
+            printf("Erro na abertura do arquivo\n");
+        fwrite(&pin3, sizeof(char[3]), 1, f);
+
+        fclose(f);
+
+        system("chmod 777 /sys/class/gpio/gpio55/direction");
+
+        f = fopen("/sys/class/gpio/gpio55/direction", "a");
+        if (f == NULL)
+            printf("Erro na abertura do arquivo\n");
+        fwrite(&dir, sizeof(char[4]), 1, f);
+
+        fclose(f);
+
         if(onOff == 1)
         {
             f = fopen("/sys/class/gpio/gpio55/value", "w+");
@@ -133,6 +120,7 @@ int main(int argc, const char *argv[])
             fwrite(&high, sizeof(char), 1, f);
 
             fclose(f);
+            printf("value 1");
         }
 
         else {
@@ -140,10 +128,28 @@ int main(int argc, const char *argv[])
             if (f == NULL)
                 printf("Erro na abertura do arquivo\n");
             fwrite(&low, sizeof(char), 1, f);
-
             fclose(f);
+            
+            printf("value 0");
         }
     case 56:
+        /*setup pin4*/
+        f = fopen("/sys/class/gpio/export", "a");
+        if (f == NULL)
+            printf("Erro na abertura do arquivo\n");
+        fwrite(&pin4, sizeof(char[3]), 1, f);
+
+        fclose(f);
+
+        system("chmod 777 /sys/class/gpio/gpio56/direction");
+
+        f = fopen("/sys/class/gpio/gpio56/direction", "a");
+        if (f == NULL)
+            printf("Erro na abertura do arquivo\n");
+        fwrite(&dir, sizeof(char[4]), 1, f);
+
+        fclose(f);
+        
         if(onOff == 1)
         {
             f = fopen("/sys/class/gpio/gpio56/value", "w+");
@@ -152,6 +158,7 @@ int main(int argc, const char *argv[])
             fwrite(&high, sizeof(char), 1, f);
 
             fclose(f);
+            printf("value 1");
         }
 
         else {
@@ -161,6 +168,7 @@ int main(int argc, const char *argv[])
             fwrite(&low, sizeof(char), 1, f);
 
             fclose(f);
+            printf("value 0");
         }
     }
     return 0;
